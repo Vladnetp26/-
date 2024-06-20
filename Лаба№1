@@ -42,23 +42,23 @@ df/dz = -e^-z
 import numpy as np
 import sympy as sp
 
-Определяем символы
+# Определяем символы
 x, y, z = sp.symbols('x y z')
 
-Определяем функцию
+# Определяем функцию
 f = y * x**2 + sp.log(y) + sp.exp(-z)
 
-Вычисляем частные производные
+# Вычисляем частные производные
 df_dx = sp.diff(f, x)
 df_dy = sp.diff(f, y)
 df_dz = sp.diff(f, z)
 
-Выводим результаты
+# Выводим результаты
 print("Частная производная по x:", df_dx)
 print("Частная производная по y:", df_dy)
 print("Частная производная по z:", df_dz)
 
-Функция для вычисления градиента
+# Функция для вычисления градиента
 def gradient(x_val, y_val, z_val):
     # Подставляем значения в производные
     grad_x = df_dx.subs({x: x_val, y: y_val, z: z_val})
@@ -66,7 +66,7 @@ def gradient(x_val, y_val, z_val):
     grad_z = df_dz.subs({x: x_val, y: y_val, z: z_val})
     return np.array([grad_x, grad_y, grad_z])
 
-Пример значений для x, y, z
+# Пример значений для x, y, z
 x_val, y_val, z_val = 1, 2, 3
 
 # Вычисление и вывод градиента
